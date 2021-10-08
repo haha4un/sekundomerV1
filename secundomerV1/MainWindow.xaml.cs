@@ -17,11 +17,12 @@ namespace secundomerV1
 
         private int counter = 0;
 
+        private int blocker = 0;
 
         public MainWindow()
         {
             InitializeComponent();
-
+            MessageBox.Show("code maker is @haha4un©");
 
         }
 
@@ -29,13 +30,18 @@ namespace secundomerV1
         {
             counter += 1;
             start = true;
-
-            Secundomer();
+            blocker = 1;
+            if (blocker == 1)
+            {
+                counter += 0;
+                Secundomer();
+            }
+           
         }
 
         private async Task Secundomer()
         {
-            while (start = true || counter == 1)
+            while (counter == 1)
             {
                 // deloy
                 await Task.Delay(1000);
