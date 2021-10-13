@@ -19,16 +19,19 @@ namespace secundomerV1
 
         private int blocker = 0;
 
+        private bool reseter = false;
+
         public MainWindow()
         {
             InitializeComponent();
-            MessageBox.Show("code maker is @haha4un©");
+            MessageBox.Show("Сode maker is @haha4un©");
 
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            counter += 1;
+            reseter = false;
+            counter = 1;
             start = true;
             blocker = 1;
             if (blocker == 1)
@@ -36,7 +39,7 @@ namespace secundomerV1
                 counter += 0;
                 Secundomer();
             }
-           
+
         }
 
         private async Task Secundomer()
@@ -65,6 +68,37 @@ namespace secundomerV1
                         h.Text = hour.ToString();
                     }
                 }
+                if (hour == 59 & minute == 59 & secunds == 59)
+                {
+                    break;
+                }
+
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            reseter = true;
+            reset();
+        }
+
+        private void reset()
+        {
+            if (reseter == true)
+            {
+                hour = 0;
+                minute = 0;
+                secunds = 0;
+
+                s.Text = secunds.ToString();
+                m.Text = minute.ToString();
+                h.Text = hour.ToString();
+            }
+            else
+            {
+                counter = 0;
+                counter = 1;
+                Secundomer();               
             }
         }
     }
